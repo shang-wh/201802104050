@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "ad93c53d-7d2f-4a88-8a9a-4ea1438f4d64",
+		"name": "DepartmentTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST localhost:8888/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40375937-82eb-49a5-948c-7df7b59abb8d",
+						"exec": [
+							"     var jsonData = JSON.parse(responseBody);",
+							"      tests[\"增加成功?\"] = jsonData.message === \"增加成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"id为null新系\",\"no\":\"0201\",\"remarks\":\"\",\"school\":{\r\n        \"description\": \"管理工程学院\",\r\n        \"id\": 2,\r\n        \"no\": \"01\",\r\n        \"remarks\": \"\"\r\n    }}\r\n\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/department.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8888/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "daddf9f4-9298-4d97-a44e-c2728a89fdeb",
+						"exec": [
+							"tests[\"Body matches string 信息系统与信息管里\"]=responseBody.has(\"信息系统与信息管里\");",
+							"tests[\"Body matches string 工程造价\"]=responseBody.has(\"工程造价\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/department.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8888/department.ctl?id=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4bf6caa7-3508-48ed-8d01-cdd4af5fd191",
+						"exec": [
+							"tests[\"Body matches string 信息系统与信息管里\"]=responseBody.has(\"信息系统与信息管里\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/department.ctl?id=9",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "department.ctl?paraType=school&id=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/department.ctl?paraType=school&id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "paraType",
+							"value": "school"
+						},
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE localhost:8888/department.ctl?id=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d762cf83-acd0-4ae4-bb5f-36bf6b621167",
+						"exec": [
+							"     var jsonData = JSON.parse(responseBody);",
+							"      tests[\"删除成功?\"] = jsonData.message === \"删除成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/department.ctl?id=11",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT localhost:8888/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b108af78-0e4b-4eae-9ed5-335a572e42e8",
+						"exec": [
+							"     var jsonData = JSON.parse(responseBody);",
+							"      tests[\"更新成功?\"] = jsonData.message === \"更新成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"description\": \"id为null新修改系\",\r\n        \"id\": 5,\r\n        \"no\": \"0201\",\r\n        \"remarks\": \"\",\r\n        \"school\": {\r\n            \"description\": \"管理工程学院\",\r\n            \"id\": 2,\r\n            \"no\": \"01\",\r\n            \"remarks\": \"\"\r\n        }\r\n    }\r\n"
+				},
+				"url": {
+					"raw": "localhost:8888/department.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

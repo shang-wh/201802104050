@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "7867c6b7-2f5d-4c52-b703-010c1e518e4b",
+		"name": "LoginTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET localhost:8888/getSession",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/getSession",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"getSession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8888/createSession",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/createSession",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"createSession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8888/logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8888/showCookies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/showCookies",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"showCookies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST localhost:8888/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8888/login?username=01&password=01",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "01"
+						},
+						{
+							"key": "password",
+							"value": "01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

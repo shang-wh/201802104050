@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "10c153c9-8d1b-4131-8d04-5dd34462b646",
+		"name": "ProfTitleTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST localhost:8888/profTitle.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40375937-82eb-49a5-948c-7df7b59abb8d",
+						"exec": [
+							"     var jsonData = JSON.parse(responseBody);",
+							"      tests[\"增加成功?\"] = jsonData.message === \"增加成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"description\": \"博士后\",\r\n        \"id\": 2,\r\n        \"no\": \"01\",\r\n        \"remarks\": \"\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/profTitle.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"profTitle.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8888/profTitle.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "74a3bd5b-c4d8-4270-94fa-7db0ca40afab",
+						"exec": [
+							"tests[\"Body matches string 硕士\"]=responseBody.has(\"硕士\");",
+							"tests[\"Body matches string 博士后\"]=responseBody.has(\"博士后\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/profTitle.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"profTitle.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8888/profTitle.ctl?id=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8c557ca4-b2e2-493b-ac11-2391f952fa5d",
+						"exec": [
+							"tests[\"Body matches string 研究生\"]=responseBody.has(\"研究生\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/profTitle.ctl?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"profTitle.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE localhost:8888/profTitle.ctl?id=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9cc9784-bb72-43d7-b0c7-5e0dfce96cc5",
+						"exec": [
+							"     var jsonData = JSON.parse(responseBody);",
+							"      tests[\"删除成功?\"] = jsonData.message === \"删除成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/profTitle.ctl?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"profTitle.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT localhost:8888/profTitle.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8aa64634-a2b3-470a-b4b0-b7b714b94b36",
+						"exec": [
+							"     var jsonData = JSON.parse(responseBody);",
+							"      tests[\"更新成功?\"] = jsonData.message === \"更新成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"description\": \"研究生\",\r\n        \"id\": 2,\r\n        \"no\": \"01\",\r\n        \"remarks\": \"\"\r\n    }"
+				},
+				"url": {
+					"raw": "localhost:8888/profTitle.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"profTitle.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
